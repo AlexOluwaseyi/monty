@@ -55,3 +55,26 @@ void opcode_pchar(stack_t **stack, unsigned int line_number)
 	putchar('\n');
 }
 
+/**
+ * opcode_pstr - iterates through the elements in the stack, treating
+ * each integer value as an ASCII value of a character to be printed
+ * @stack: Double pointer to the top of the stack.
+ * @line_number: Line number where the opcode is encountered.
+ */
+
+void opcode_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+
+	(void)line_number;
+       
+	current = *stack;
+
+	while (current != NULL && current->n != 0 &&
+			current->n >= 0 && current->n <= 127)
+	{
+		putchar(current->n);
+		current = current->next;
+	}
+	putchar('\n');
+}
