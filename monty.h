@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
+#include <ctype.h>
 
 #define MAX_LINE_LENGTH 1024
 extern const char *valid_opcodes[];
@@ -68,6 +69,7 @@ void opcode_pop(stack_t **stack, unsigned int line_number);
 void opcode_pall(stack_t **stack, unsigned int line_number);
 int is_valid_opcode(const char *opcode);
 OpcodeMapping *get_opcode_mappings(void);
+void free_stack(stack_t *stack);
 
 
 #endif /* #ifndef MONTY_H */

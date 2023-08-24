@@ -51,12 +51,32 @@ int main(int argc, char *argv[])
 			if (!found)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+				free_stack(stack);
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
 		}
 		found = 0;
 	}
+	free_stack(stack);
 	fclose(file);
 	return (0);
+}
+
+/**
+ * free_stack - Frees the stack list
+ * @stack: pointer to stack memory allocation
+ */
+
+void free_stack(stack_t *stack)
+{
+	stack_t *current_node;
+
+	while (stack != NULL)
+	{
+		current_node = stack;
+		stack = stack->next;
+		free(current_node);
+	}
+	free(stack);
 }

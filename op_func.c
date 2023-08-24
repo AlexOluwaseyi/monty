@@ -33,6 +33,7 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free(new_node);
 		exit(EXIT_FAILURE);
 	}
 
