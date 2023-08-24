@@ -36,6 +36,7 @@ OpcodeMapping *get_opcode_mappings(void)
 		{"pint", opcode_pint},
 		{"swap", opcode_swap},
 		{"add", opcode_add},
+		{"nop", opcode_nop},
 		/* ... Other opcode mappings ... */
 		{NULL, NULL}
 	};

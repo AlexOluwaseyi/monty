@@ -73,6 +73,7 @@ void free_stack(stack_t *stack);
 void opcode_pint(stack_t **stack, unsigned int line_number);
 void opcode_swap(stack_t **stack, unsigned int line_number);
 void opcode_add(stack_t **stack, unsigned int line_number);
+void opcode_nop(stack_t **stack, unsigned int line_number);
 
 
 #endif /* #ifndef MONTY_H */

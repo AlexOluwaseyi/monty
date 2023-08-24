@@ -18,3 +18,15 @@ void opcode_add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n += (*stack)->n;
 	opcode_pop(stack, line_number);
 }
+
+/**
+ * opcode_nop - function does nothing
+ * @stack: Double pointer to the top of the stack.
+ * @line_number: Line number where the opcode is encountered.
+ */
+
+void opcode_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
