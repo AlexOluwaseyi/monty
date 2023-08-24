@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		line[strcspn(line, "\n")] = '\0';
+		if (line[0] == '#')
+			continue;
 		opcode = strtok(line, " ");
 		if (opcode != NULL)
 		{

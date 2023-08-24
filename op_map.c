@@ -38,6 +38,10 @@ OpcodeMapping *get_opcode_mappings(void)
 		{"add", opcode_add},
 		{"nop", opcode_nop},
 		{"sub", opcode_sub},
+		{"div", opcode_div},
+		{"mul", opcode_mul},
+		{"mod", opcode_mod},
+		{"pchar", opcode_pchar},
 		/* ... Other opcode mappings ... */
 		{NULL, NULL}
 	};
