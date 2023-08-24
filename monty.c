@@ -33,9 +33,7 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
-
 		line[strcspn(line, "\n")] = '\0';
-
 		opcode = strtok(line, " ");
 		if (opcode != NULL)
 		{
