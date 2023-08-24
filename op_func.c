@@ -110,3 +110,24 @@ void opcode_pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * opcode_swap - checks if the stack has at least two elements
+ * before attempting to swap the top two elements
+ * @stack: Double pointer to the top of the stack.
+ * @line_number: Line number where the opcode is encountered.
+ */
+
+void opcode_swap(stack_t **stack, unsigned int line_number)
+{
+	int temp;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp;
+}

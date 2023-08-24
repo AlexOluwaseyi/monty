@@ -71,6 +71,7 @@ int is_valid_opcode(const char *opcode);
 OpcodeMapping *get_opcode_mappings(void);
 void free_stack(stack_t *stack);
 void opcode_pint(stack_t **stack, unsigned int line_number);
+void opcode_swap(stack_t **stack, unsigned int line_number);
 
 
 #endif /* #ifndef MONTY_H */
