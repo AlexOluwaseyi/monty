@@ -6,12 +6,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
-#include <ctype.h>
 
-
-#define _GNU_SOURCE
 #define MAX_LINE_LENGTH 1024
 extern const char *valid_opcodes[];
+
 
 /* Structures */
 
@@ -63,14 +61,13 @@ typedef struct op_mapping
 	void (*function)(stack_t **, unsigned int);
 } OpcodeMapping;
 
+
 /* Function Prototypes */
 void opcode_push(stack_t **stack, unsigned int line_number);
 void opcode_pop(stack_t **stack, unsigned int line_number);
 void opcode_pall(stack_t **stack, unsigned int line_number);
 int is_valid_opcode(const char *opcode);
 OpcodeMapping *get_opcode_mappings(void);
-int is_valid_integer(const char *str);
-
 
 
 #endif /* #ifndef MONTY_H */

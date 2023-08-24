@@ -7,18 +7,21 @@ const char *valid_opcodes[] = {
 	"stack", "queue", NULL
 };
 
+/* Opcode Functions */
+
 /**
  * opcode_push - Pushes an element onto the top of the stack.
  * @stack: Double pointer to the top of the stack.
  * @line_number: Line number where the opcode is encountered.
  */
+
 void opcode_push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 	char *value_str = strtok(NULL, " ");
 	stack_t *new_node;
 
-	if (value_str == NULL || !is_valid_integer(value_str))
+	if (value_str == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
