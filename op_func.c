@@ -21,7 +21,12 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	char *value_str = strtok(NULL, " ");
 	stack_t *new_node;
 
-	if (value_str == NULL)
+	while (value_str != NULL && isspace(*value_str))
+	{
+		value_str++;
+	}
+
+	if (value_str == NULL || *value_str == '\0')
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -42,7 +47,7 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(new_node);
+		free_stack(new_node);
 		exit(EXIT_FAILURE);
 	}
 

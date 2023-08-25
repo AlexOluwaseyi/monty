@@ -34,9 +34,9 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		line[strcspn(line, "\n")] = '\0';
-		if (line[0] == '#')
-			continue;
 		opcode = strtok(line, " ");
+		if (opcode[0] == '#')
+			continue;
 		if (opcode != NULL)
 		{
 			for (i = 0; opcode_mappings[i].opcode != NULL; i++)
@@ -78,4 +78,5 @@ void free_stack(stack_t *stack)
 		stack = stack->next;
 		free(current_node);
 	}
+	free(stack);
 }
