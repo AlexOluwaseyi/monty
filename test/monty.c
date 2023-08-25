@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char line[MAX_LINE_LENGTH], *opcode;
 	unsigned int line_number = 0;
-	int found = 0;
 	stack_t *stack;
 	OpcodeMapping *opcode_mappings = get_opcode_mappings();
 	size_t i;
@@ -34,7 +33,7 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		line[strcspn(line, "\n")] = '\0';
-		opcode = strtok(line, " ");
+		opcode = strtok(line, " \n\t\r");
 		if (opcode[0] == '#')
 			continue;
 		if (opcode != NULL)
@@ -44,11 +43,10 @@ int main(int argc, char *argv[])
 				if (strcmp(opcode, opcode_mappings[i].opcode) == 0)
 				{
 					opcode_mappings[i].function(&stack, line_number);
-					found = 1;
 					break;
 				}
 			}
-			if (!found)
+			if (!opcode_mappings[i].opcode)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 				free_stack(stack);
@@ -56,7 +54,6 @@ int main(int argc, char *argv[])
 				exit(EXIT_FAILURE);
 			}
 		}
-		found = 0;
 	}
 	free_stack(stack);
 	fclose(file);
