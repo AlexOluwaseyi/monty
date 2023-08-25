@@ -43,6 +43,7 @@ OpcodeMapping *get_opcode_mappings(void)
 		{"mod", opcode_mod},
 		{"pchar", opcode_pchar},
 		{"pstr", opcode_pstr},
+		{"rotl", opcode_rotl},
 		/* ... Other opcode mappings ... */
 		{NULL, NULL}
 	};
