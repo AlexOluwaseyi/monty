@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 		if (line[0] == '#')
 			continue;
 		opcode = strtok(line, " ");
+		if ((opcode != NULL) && opcode[0] == '#')
+			continue;
 		if (opcode != NULL)
 		{
 			for (i = 0; opcode_mappings[i].opcode != NULL; i++)
