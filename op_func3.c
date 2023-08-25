@@ -107,3 +107,34 @@ void opcode_rotl(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 	last->next->next = NULL;
 }
+
+/**
+ * opcode_rotr - checks if the stack has at least two elements
+ * before performing the rotation
+ * @stack: Double pointer to the top of the stack.
+ * @line_number: Line number where the opcode is encountered.
+ */
+
+void opcode_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last;
+
+	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		return;
+	}
+
+	last = *stack;
+	while (last->next != NULL)
+	{
+		last = last->next;
+	}
+
+	last->prev->next = NULL;
+	last->prev = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+	*stack = last;
+}
