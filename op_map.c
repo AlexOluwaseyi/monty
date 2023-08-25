@@ -45,6 +45,8 @@ OpcodeMapping *get_opcode_mappings(void)
 		{"pstr", opcode_pstr},
 		{"rotl", opcode_rotl},
 		{"rotr", opcode_rotr},
+		{"stack", opcode_stack},
+		{"queue",opcode_queue},
 		/* ... Other opcode mappings ... */
 		{NULL, NULL}
 	};

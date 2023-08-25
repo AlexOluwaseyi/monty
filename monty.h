@@ -82,6 +82,8 @@ void opcode_pchar(stack_t **stack, unsigned int line_number);
 void opcode_pstr(stack_t **stack, unsigned int line_number);
 void opcode_rotl(stack_t **stack, unsigned int line_number);
 void opcode_rotr(stack_t **stack, unsigned int line_number);
+void opcode_stack(stack_t **stack, unsigned int line_number);
+void opcode_queue(stack_t **stack, unsigned int line_number);
 
 
 
