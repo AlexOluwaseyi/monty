@@ -17,7 +17,7 @@ const char *valid_opcodes[] = {
 
 void opcode_push(stack_t **stack, unsigned int line_number)
 {
-	int value;
+	int value, i;
 	char *value_str = strtok(NULL, " ");
 	stack_t *new_node;
 
@@ -25,6 +25,15 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
+	}
+
+	for (i = 0; value_str[i] != '\0'; i++)
+	{
+		if (!isdigit(value_str[i]) && !(i == 0 && value_str[i] == '-'))
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	value = atoi(value_str);
